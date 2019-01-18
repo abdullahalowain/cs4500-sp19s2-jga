@@ -1,10 +1,20 @@
 package com.example.cs4500sp19s2jga.models;
 
 public class User {
+	private Integer id;
 	private String username;
 	private String password;
 	private String firstName;
 	private String lastName;
+	public User() {}
+	public User(Integer id, String username, String password, String firstName, String lastName) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -28,5 +38,11 @@ public class User {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }
