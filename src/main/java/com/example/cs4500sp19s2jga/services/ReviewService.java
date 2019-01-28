@@ -17,6 +17,11 @@ import com.example.cs4500sp19s2jga.repository.ReviewRepository;
 public class ReviewService {
 	@Autowired
 	ReviewRepository reviewRepository;
+	@GetMapping("/api/users/{userId}/reviews")
+	public List<Review> findReviewsOfMe(
+			@PathVariable("userId") Integer userId) {
+		return reviewRepository.findReviewsOfMe(userId);
+	}
 	@DeleteMapping("/api/reviews/{id}")
 	public void deleteReview(
 			@PathVariable("id") Integer id) {

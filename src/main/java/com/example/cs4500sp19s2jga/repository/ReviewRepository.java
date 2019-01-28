@@ -13,6 +13,7 @@ public interface ReviewRepository
 	@Query(value="SELECT review FROM Review review")
 	public List<Review> findAllReviews();
 	@Query(value="SELECT review FROM Review review WHERE id=:id")
-	public Review findReviewById(
-			@Param("id") Integer id);
+	public Review findReviewById(@Param("id") Integer id);
+	@Query(value="SELECT review FROM Review review WHERE reviewed.id=:id")
+	public List<Review> findReviewsOfMe(@Param("id") Integer id);
 }
