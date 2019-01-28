@@ -1,5 +1,7 @@
 package com.example.cs4500sp19s2jga.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,8 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+	private List<Review> reviewsOfMe;
+	private List<Review> myReviewsOfOthers;
 	public User() {}
 	public User(Integer id, String username, String password, String firstName, String lastName) {
 		super();
@@ -52,5 +56,17 @@ public class User {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public List<Review> getReviewsOfMe() {
+		return reviewsOfMe;
+	}
+	public void setReviewsOfMe(List<Review> reviewsOfMe) {
+		this.reviewsOfMe = reviewsOfMe;
+	}
+	public List<Review> getMyReviewsOfOthers() {
+		return myReviewsOfOthers;
+	}
+	public void setMyReviewsOfOthers(List<Review> myReviewsOfOthers) {
+		this.myReviewsOfOthers = myReviewsOfOthers;
 	}
 }

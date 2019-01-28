@@ -14,6 +14,8 @@ public class Review {
 	private Integer id;
 	private String title;
 	private String review;
+	private User reviewer;
+	private User reviewed;
 	public Integer getId() {
 		return id;
 	}
@@ -31,5 +33,17 @@ public class Review {
 	}
 	public void setReview(String review) {
 		this.review = review;
+	}
+	public User getReviewer() {
+		return reviewer;
+	}
+	public void setReviewer(User reviewer) {
+		this.reviewer = reviewer;
+	}
+	public User getReviewed() {
+		return reviewed;
+	}
+	public void setReviewed(User reviewed) {
+		this.reviewed = reviewed;
 	}
 }
