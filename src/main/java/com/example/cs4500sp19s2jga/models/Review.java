@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,11 @@ public class Review {
 	private Integer id;
 	private String title;
 	private String review;
+	@ManyToOne
+	@PrimaryKeyJoinColumn(name="reviewer_id", referencedColumnName="id")
 	private User reviewer;
+	@ManyToOne
+	@PrimaryKeyJoinColumn(name="reviewed_id", referencedColumnName="id")
 	private User reviewed;
 	public Integer getId() {
 		return id;
