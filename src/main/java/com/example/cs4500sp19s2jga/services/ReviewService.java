@@ -25,6 +25,11 @@ public class ReviewService {
 			@PathVariable("userId") Integer userId) {
 		return userRepository.findUserById(userId).getReviewsOfMe();
 	}
+	@GetMapping("/api/users/{userId}/reviewed")
+	public List<Review> findReviewsByMe(
+			@PathVariable("userId") Integer userId) {
+		return userRepository.findUserById(userId).getMyReviewsOfOthers();
+	}
 	@DeleteMapping("/api/reviews/{id}")
 	public void deleteReview(
 			@PathVariable("id") Integer id) {
