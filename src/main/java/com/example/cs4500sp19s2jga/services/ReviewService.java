@@ -12,15 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.cs4500sp19s2jga.models.Review;
 import com.example.cs4500sp19s2jga.repository.ReviewRepository;
+import com.example.cs4500sp19s2jga.repository.UserRepository;
 
 @RestController
 public class ReviewService {
 	@Autowired
 	ReviewRepository reviewRepository;
+	@Autowired
+	UserRepository userRepository;
 	@GetMapping("/api/users/{userId}/reviews")
 	public List<Review> findReviewsOfMe(
 			@PathVariable("userId") Integer userId) {
-		return reviewRepository.findReviewsOfMe(userId);
+		return userRepository.findUserById(userId).getReviewsOfMe();
 	}
 	@DeleteMapping("/api/reviews/{id}")
 	public void deleteReview(
