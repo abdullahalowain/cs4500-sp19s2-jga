@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="reviews")
 public class Review {
@@ -18,9 +20,11 @@ public class Review {
 	private String review;
 	@ManyToOne
 	@PrimaryKeyJoinColumn(name="reviewer_id", referencedColumnName="id")
+	@JsonIgnore
 	private User reviewer;
 	@ManyToOne
 	@PrimaryKeyJoinColumn(name="reviewed_id", referencedColumnName="id")
+	@JsonIgnore
 	private User reviewed;
 	public Integer getId() {
 		return id;
