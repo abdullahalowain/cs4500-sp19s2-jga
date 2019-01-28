@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -16,7 +17,9 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+	@OneToMany(mappedBy="reviewer")
 	private List<Review> reviewsOfMe;
+	@OneToMany(mappedBy="reviewed")
 	private List<Review> myReviewsOfOthers;
 	public User() {}
 	public User(Integer id, String username, String password, String firstName, String lastName) {
