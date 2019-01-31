@@ -21,6 +21,13 @@ public class User {
 	private List<Review> reviewsOfMe;
 	@OneToMany(mappedBy="reviewed")
 	private List<Review> myReviewsOfOthers;
+	private List<FrequentlyAskedAnswer> frequentlyAskedAnswers;
+    public List<FrequentlyAskedAnswer> getFrequentlyAskedAnswers() {
+        return frequentlyAskedAnswers;
+    }
+    public void setFrequentlyAskedAnswers(List<FrequentlyAskedAnswer> frequentlyAskedAnswers) {
+        this.frequentlyAskedAnswers = frequentlyAskedAnswers;
+    }
 	public User() {}
 	public User(Integer id, String username, String password, String firstName, String lastName) {
 		super();
