@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +15,7 @@ public class FrequentlyAskedAnswer {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String answer;
+    @ManyToOne
     private FrequentlyAskedQuestion frequentlyAskedQuestion;
     @ManyToOne
     private User user;
