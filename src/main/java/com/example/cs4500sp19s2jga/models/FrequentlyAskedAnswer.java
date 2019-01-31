@@ -13,6 +13,13 @@ public class FrequentlyAskedAnswer {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String answer;
+    private FrequentlyAskedQuestion frequentlyAskedQuestion;
+    public FrequentlyAskedQuestion getFrequentlyAskedQuestion() {
+        return frequentlyAskedQuestion;
+    }
+    public void setFrequentlyAskedQuestion(FrequentlyAskedQuestion frequentlyAskedQuestion) {
+        this.frequentlyAskedQuestion = frequentlyAskedQuestion;
+    }
     public Integer getId() {
         return id;
     }
