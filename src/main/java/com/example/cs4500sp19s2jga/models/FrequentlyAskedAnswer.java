@@ -14,6 +14,13 @@ public class FrequentlyAskedAnswer {
     private Integer id;
     private String answer;
     private FrequentlyAskedQuestion frequentlyAskedQuestion;
+    private User user;
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
     public FrequentlyAskedQuestion getFrequentlyAskedQuestion() {
         return frequentlyAskedQuestion;
     }
