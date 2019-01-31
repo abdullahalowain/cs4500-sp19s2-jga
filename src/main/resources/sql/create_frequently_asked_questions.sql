@@ -3,5 +3,6 @@ create table frequently_asked_questions (
    question varchar(255),
    title varchar(255),
    primary key (id),
+   foreign key (frequently_asked_question_id) references frequently_asked_question (id),
    foreign key (user_id) references user (id)
 ) engine=InnoDB
