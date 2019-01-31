@@ -21,6 +21,7 @@ public class User {
 	private List<Review> reviewsOfMe;
 	@OneToMany(mappedBy="reviewed")
 	private List<Review> myReviewsOfOthers;
+	@OneToMany(mappedBy="user")
 	private List<FrequentlyAskedAnswer> frequentlyAskedAnswers;
     public List<FrequentlyAskedAnswer> getFrequentlyAskedAnswers() {
         return frequentlyAskedAnswers;
