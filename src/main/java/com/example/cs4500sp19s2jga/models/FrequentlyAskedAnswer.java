@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,6 +23,14 @@ public class FrequentlyAskedAnswer {
     @ManyToOne
     @JsonIgnore
     private User user;
+    @Transient
+    private String question;
+    public String getQuestion() {
+        return frequentlyAskedQuestion.getQuestion();
+    }
+    public void setQuestion(String question) {
+        this.question = question;
+    }
     public User getUser() {
         return user;
     }
