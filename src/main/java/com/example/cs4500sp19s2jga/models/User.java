@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -23,6 +24,14 @@ public class User {
 	private List<Review> myReviewsOfOthers;
 	@OneToMany(mappedBy="user")
 	private List<FrequentlyAskedAnswer> frequentlyAskedAnswers;
+	@ManyToMany(mappedBy="providers")
+	private List<Service> services;
+    public List<Service> getServices() {
+        return services;
+    }
+    public void setServices(List<Service> services) {
+        this.services = services;
+    }
     public List<FrequentlyAskedAnswer> getFrequentlyAskedAnswers() {
         return frequentlyAskedAnswers;
     }
