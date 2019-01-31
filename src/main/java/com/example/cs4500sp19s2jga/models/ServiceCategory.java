@@ -14,8 +14,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="services")
-public class Service {
+@Table(name="service_categories")
+public class ServiceCategory {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
@@ -23,24 +23,10 @@ public class Service {
     @ManyToMany
     @JsonIgnore
     @JoinTable(
-            name="PROVIDERS_SERVICES",
-            joinColumns=@JoinColumn(name="SERVICE_ID", referencedColumnName="ID"),
-            inverseJoinColumns=@JoinColumn(name="USER_ID", referencedColumnName="ID"))
-    private List<User> providers;
-    @ManyToMany(mappedBy="services")
-    private List<ServiceCategory> serviceCategories;
-    public List<ServiceCategory> getServiceCategories() {
-        return serviceCategories;
-    }
-    public void setServiceCategories(List<ServiceCategory> serviceCategories) {
-        this.serviceCategories = serviceCategories;
-    }
-    public List<User> getProviders() {
-        return providers;
-    }
-    public void setProviders(List<User> providers) {
-        this.providers = providers;
-    }
+            name="CATEGORIES_SERVICES",
+            joinColumns=@JoinColumn(name="CATEGORY_ID", referencedColumnName="ID"),
+            inverseJoinColumns=@JoinColumn(name="SERVICE_ID", referencedColumnName="ID"))
+    private List<Service> services;
     public Integer getId() {
         return id;
     }
@@ -52,5 +38,11 @@ public class Service {
     }
     public void setTitle(String title) {
         this.title = title;
+    }
+    public List<Service> getServices() {
+        return services;
+    }
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
 }
