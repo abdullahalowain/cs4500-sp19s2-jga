@@ -5,8 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="frequently_asked_answers")
@@ -16,8 +17,10 @@ public class FrequentlyAskedAnswer {
     private Integer id;
     private String answer;
     @ManyToOne
+    @JsonIgnore
     private FrequentlyAskedQuestion frequentlyAskedQuestion;
     @ManyToOne
+    @JsonIgnore
     private User user;
     public User getUser() {
         return user;
