@@ -14,6 +14,7 @@ public class ServiceQuestion {
     private Integer id;
     private String question;
     private String type;
+    private String choices;
     public Integer getId() {
         return id;
     }
@@ -31,5 +32,11 @@ public class ServiceQuestion {
     }
     public void setType(String type) {
         this.type = type;
+    }
+    public String getChoices() {
+        return choices;
+    }
+    public void setChoices(String choices) {
+        this.choices = choices;
     }
 }
