@@ -18,6 +18,8 @@ public class User {
 	private String password;
 	private String firstName;
 	private String lastName;
+    @OneToMany(mappedBy="provider")
+    private List<ServiceAnswer> serviceAnswers;
 	@OneToMany(mappedBy="reviewer")
 	private List<Review> reviewsOfMe;
 	@OneToMany(mappedBy="reviewed")

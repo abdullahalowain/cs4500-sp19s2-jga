@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="service_answers")
@@ -16,6 +19,12 @@ public class ServiceAnswer {
     private Integer maxRangeAnswer;
     private Integer minRangeAnswer;
     private Integer choiceAnswer;
+    @ManyToOne
+    @JsonIgnore
+    private ServiceQuestion serviceQuestion;
+    @ManyToOne
+    @JsonIgnore
+    private User provider;
     public Integer getId() {
         return id;
     }
@@ -45,5 +54,17 @@ public class ServiceAnswer {
     }
     public void setChoiceAnswer(Integer choiceAnswer) {
         this.choiceAnswer = choiceAnswer;
+    }
+    public ServiceQuestion getServiceQuestion() {
+        return serviceQuestion;
+    }
+    public void setServiceQuestion(ServiceQuestion serviceQuestion) {
+        this.serviceQuestion = serviceQuestion;
+    }
+    public User getProvider() {
+        return provider;
+    }
+    public void setProvider(User provider) {
+        this.provider = provider;
     }
 }
