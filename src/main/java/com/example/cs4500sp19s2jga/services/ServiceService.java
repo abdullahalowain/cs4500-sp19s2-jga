@@ -23,6 +23,11 @@ public class ServiceService {
     public List<Service> findAllServices() {
         return serviceRepository.findAllServices();
     }
+    @GetMapping("/api/services/{serviceId}")
+    public Service findServiceById(
+            @PathVariable("serviceId") Integer id) {
+        return serviceRepository.findServiceById(id);
+    }
     @GetMapping("/api/users/{userId}/services")
     public List<Service> findAllServicesForUser(
             @PathVariable("userId") Integer userId) {
