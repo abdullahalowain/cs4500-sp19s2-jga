@@ -22,5 +22,11 @@ public class DefaultUserService implements UserService {
     public List<User> findAllUsers() {
         return (List<User>) userRepository.findAll();
     }
+
+    @Override
+    public User findUserById(Integer userId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }
