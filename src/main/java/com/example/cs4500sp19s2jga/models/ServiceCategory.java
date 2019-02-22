@@ -45,4 +45,9 @@ public class ServiceCategory {
     public void setServices(List<Service> services) {
         this.services = services;
     }
+    public ServiceCategory() {}
+    public ServiceCategory(Integer id, String title) {
+        this.id = id;
+        this.title = title;
+    }
 }

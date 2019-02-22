@@ -53,4 +53,9 @@ public class Service {
     public void setTitle(String title) {
         this.title = title;
     }
+    public Service(Integer id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+    public Service() {}
 }
