@@ -28,6 +28,19 @@ public class QuoteService {
     @Autowired
     QuoteRepository repository;
     
+    @GetMapping("/api/quotes/filtered")
+    public List<Quote> filterQuotes(
+            @RequestParam(name="jobTitle", required=false) String jobTitle,
+            @RequestParam(name="jobDescription", required=false) String jobDescription) {
+        if(jobDescription != null && jobTitle != null) {
+            jobDescription = "%" + jobDescription + "%";
+            jobTitle = "%" + jobTitle + "%";
+            return pagedRepository.filterQuotes(jobDescription, jobTitle);
+        }
+        return pagedRepository.findAll();
+    }
+    
+    
     @GetMapping("/api/quotes/paged")
     public Page<Quote> findPagedQuotes(
             @RequestParam(name="page", required=false) Integer page,
