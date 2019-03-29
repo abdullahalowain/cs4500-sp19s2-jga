@@ -23,7 +23,6 @@ public class ServiceCategory {
     private Integer popularity;
     private String icon;
     @ManyToMany
-    @JsonIgnore
     @JoinTable(
             name="CATEGORIES_SERVICES",
             joinColumns=@JoinColumn(name="CATEGORY_ID", referencedColumnName="ID"),
