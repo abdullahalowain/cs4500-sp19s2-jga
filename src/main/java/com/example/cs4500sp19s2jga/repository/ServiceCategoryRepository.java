@@ -10,7 +10,7 @@ import com.example.cs4500sp19s2jga.models.ServiceCategory;
 
 public interface ServiceCategoryRepository
     extends CrudRepository<ServiceCategory, Integer> {
-    @Query(value="SELECT serviceCategory FROM ServiceCategory serviceCategory")
+    @Query(value="SELECT serviceCategory FROM ServiceCategory serviceCategory ORDER BY popularity DESC")
     public List<ServiceCategory> findAllServiceCategories();
     @Query(value="SELECT serviceCategory FROM ServiceCategory serviceCategory WHERE id=:serviceCategoryId")
     public ServiceCategory findServiceCategoryById(
