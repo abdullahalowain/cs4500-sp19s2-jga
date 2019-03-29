@@ -74,6 +74,8 @@ public class QuoteService {
             @RequestBody Quote newQuote) {
         Quote quote = repository.findQuoteById(id);
         quote.setJobTitle(newQuote.getJobTitle());
+        quote.setJobDescription(newQuote.getJobDescription());
+        quote.setPrice(newQuote.getPrice());
         return repository.save(quote);
     }
     @DeleteMapping("/api/quotes/{id}")
